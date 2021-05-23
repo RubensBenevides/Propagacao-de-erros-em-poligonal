@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset "UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name "viewport" content="width=device-width, initial-scale=1.0">
+        <title> Ajustamento UFPR</title>    
+        <link rel="stylesheet" href="style_ajustamento.css">
+    </head>
+
+    <body>
+        <header>
+            <h1>Ajustamento de Observações 1</h1>
+            <h2>Trabalho 1 - Propagação de erros e/ou covariâncias</h2>
+        </header>
+
+        <!-- Aqui vai as imagens-->
+        <div>
+            <img src="imagens/mapa_situacao.png" alt="mapa_situacao">
+            <img src="imagens/coordenadas_e_precisoes2.png" alt="coordenadas_e_precisoes">
+        </div>
+
+        <article>
+            <section>
+                <h3>Objetivos:</h3>
+                <ol>
+                    <li>Calcular as coordenadas planimétricas no sistema UTM (norte - N e este - E), a ltura elipsoidal (h) e os respectivos desvios-padrões para cada um dos vértices: 25, 26, 27, 31 e 32, sendo estes vértices as divisas de um imóvel.</li>
+                    <li>Verificar se a precisao planimetrica resultante (precisão 2D horizontal) é melhor ou igual a +- 8 cm em cada vértice de divisa.</li>
+                    <li>O ultimo vértice de divisa (32) deve ser determinado pela intersecção dos alinhamentos 25-27 e 25-31.</li>
+                    <li>Calcular o perímetro e a área do imovel, bem como os respectivos desvios-padrões.</li>
+                    <li>Por fim, verificar se o desvio-padrão da área é inferior ou igual a 5 % do seu valor.</li>
+                </ol>
+            </section>
+
+            <section>
+                <h3>Dados para o trabalho:</h3>
+                <ul>
+                    <li>O levantamento foi realizado com uma estacao total Ruide-RTS-822R3, com <a href="#">precisão linear</a> de <a href="#">2 mm + 2 ppm</a> (para leituras com prisma), <a href="#">precisão angular</a> de <a href="#">2 ''</a> e compensador vertical de <a href="#">1 ''</a>.</li>
+                    <li>A Altura do instrumento nas estacoes S001 e A era de <a href="#">1,475 m</a>.</li>
+                    <li>O fator de deformação linear da regiao, considerando o efeito combinado do fator de redução a nível do mar e o fator de deformacao no sistema de projecao UTM (K) é <a href="#">1,00034374</a>.</li>
+                    <li>O <a href="#">erro de centragem</a> da estacao total é <a href="#">1,5 mm</a> e dos primas refletores é <a href="#">3,5 mm</a>.</li>
+                    <li><a href="#">Erro</a> da medição da <a href="#">altura</a> do <a href="#">prisma</a> e do <a href="#">instrumento</a> é de <a href="#">2 mm</a>.</li>
+                </ul>
+            </section>
+        </article>
+
+        <h3>Primeiro faremos o cálculo das coordenadas dos pontos da poligonal</h3>
+
+        <ol>
+            <li>Calcular azimute e comprimento do alinhamento inicial S001-S002:</li>
+
+            <div>
+                <img src="imagens/mapa_situacao_1.png" alt="primeiro_azimute">
+            </div>
+
+            <li>Calcular o ângulo horizontal externo S002-S001-A. Segundo os dados da caderneta de campo, tem-se 8 visadas, 4 diretas e 4 inversas. Calcular o angulo horizontal consiste em tirar a média de tudo dentro do retângulo azul, desde que, claro, sejam feitas as devidas transformações da luneta para a posição direta. O mesmo vale para o ângulo zenital/vertical, no retângulo vermelho. </li>
+            
+            <div>
+                <img src="imagens/caderneta_de_campo1.png" alt="primeiro_azimute">
+            </div>
+
+            <div>
+            <img src="imagens/formula_luneta.png" alt="formula_luneta">
+            </div>
+
+            <article>
+                <section>
+                    <img src="imagens/calculo_re_horizontal.png" alt="calculo_re_horizontal">
+                </section>
+
+                <section>
+                    <img src="imagens/calculo_vante_horizontal.png" alt="calculo_vante_horizontal">
+                </section>
+
+                <section>
+                    <img src="imagens/angulo_horizontal.png" alt="angulo_horizontal">
+                </section>
+            </article>
+
+            <li>Fazer o mesmo para o ângulo zenital:</li>
+
+            <div>
+                <img src="imagens/formula_luneta2.png" alt="formula_luneta2">
+            </div>
+
+            <article>
+                <section>
+                    <img src="imagens/calculo_re_zenital.png" alt="calculo_re_zenital">
+                </section>
+                <section>
+                    <img src="imagens/calculo_vante_zenital.png" alt="calculo_vante_zenital">
+                </section>
+                <section>
+                    <img src="imagens/angulo_zenital.png" alt="anguo_zenital">
+                </section>
+            </article>
+            
+            <li>Calcular distância e azimute de S001 para A. Depois utiliza-los para calcular as coordenadas do ponto A:</li>
+
+            <article>
+                <section>
+                    <img src="imagens/dist_S001_A.png" alt="dist_S001_A">
+                </section>
+                <section>
+                    <div>
+                        <img src="imagens/Az_S001_A.png" alt="Az_S001_A">
+                    </div>
+                    <div>
+                        <img src="imagens/coordenadas_A.png" alt="coordenadas_A">
+                    </div>
+                </section>
+                <section>
+                    <img src="imagens/desnivel_S001_A.png" alt="desnivel_S001_A">
+                </section>
+            </article>
+
+            <div>
+                <img src="imagens/mapa_situacao_2.png" alt="mapa_situacao_2">
+            </div>
+            <h4>MUDANÇA DE ESTAÇÃO: S001 -> A</h4>
+
+            <li>Calcular angulos das irradiações e distâncias. Calcular azimutes e utiliza-los para calcular as coordenadas dos pontos 25, 26, 27 e 31. Ou seja, fazer tudo de novo com a nova ré :(</li>
+        
+            <div>
+                <img src="imagens/caderneta_de_campo_2.png" alt="primeiro_azimute">
+            </div>
+
+            <img src="imagens/calculo_re_horizontal_2.png" alt="calculo_re_horizontal">
+
+            <article>
+                <section>
+                    <div>
+                        <img src="imagens/angulos_pontos.png" alt="calculo_vante_horizontal">
+                    </div>
+                    <div>
+                        <img src="imagens/azimutes_pontos.png" alt="angulo_horizontal">
+                    </div>
+                    <div>
+                        <img src="imagens/corre_curv_pontos.png" alt="calculo_re_horizontal">
+                    </div>
+                </section>
+
+                <section>
+                    <div>
+                        <img src="imagens/DH_pontos.png" alt="calculo_re_horizontal">
+                    </div>
+                    <div>
+                        <img src="imagens/desniveis_pontos.png" alt="calculo_re_horizontal">
+                    </div>
+                    <div>
+                        <img src="imagens/coordenadas_pontos.png" alt="calculo_re_horizontal">
+                    </div>
+                </section>
+
+            </article>
+        
+        <div>
+            <img src="imagens/poligonal_4.png" alt="poligonal_4">
+        </div>
+
+        </ol>
+        
+        <h2 style="text-align:center; color: rgb(255, 0, 0); font-family:cambria; background-color: rgb(0, 0, 0); padding:0.4rem;"> ERROS</h2>
+        
+        <li style="font-family:cambria; font-size:large;"> Ok, agora vem a parte complicada de propagação dos erros, mas, conhecendo a ordem das fórmulas, não é tão complicado. Primeiro, vamos listar os parâmetros que conhecemos. Alguns valores intermediários ainda terão que ser calculados. No final, desaja-se as precisões das coordenadas dos pontos 25, 26, 27 e 31.</li>
+        
+        <p></p>
+        
+        <img style="border: 4px solid rgb(0, 0, 0)" src="imagens/lista_parametros.png" alt="calculo_re_horizontal">
+        
+        <li style="padding:0.4rem;font-family:cambria; font-size:large;"> Armado com estes 16 parâmetros seguiremos para o labirinto de fórmulas que nos dará a precisão do ponto A:</li>
+        
+        <img src="imagens/formulas.png" alt="labirinto_de_formulas">
+        
+        <li style="font-family:cambria; font-size:large;"> Substituindo tudo encontra-se a precisão do ponto A: </li>
+        
+        <div>
+            <img src="imagens/precisao_de_A.png" alt="precisao_de_A">
+        </div>
+        
+        <li style="font-family:cambria; font-size:large; padding: 0.3rem;"> Repita para os pontos 25, 26, 27 e 31.</li>
+        
+        <img src="imagens/no_god_please_no.gif" alt="NOOOOOOO">
+        
+        <p style="font-family:cambria; font-size:large; padding: 0.3rem;"> Bom, mesmo automatizando tudo com o uso de funções no python, doze, dos 16 parâmetros anteriores, vão mudar com a mudança da estação de S001 para A. Consierando as dist. inclinadas, horizontais e as coordenadas dos pontos, o total de parâmetros necessários para calcular a pricisão dos pontos vai para 19. Uma única função foi montada para receber estes parâmetros e calcular as precisões dos próximos pontos (as irradiações), ela se encontra <a href="https://colab.research.google.com/drive/1Uz9woD4smhrzHgOmwYsyecdjeA_s_0T0?usp=sharing">neste scrip</a> salvo no Google Colab. O scritp está dividido em 3 células de um Jupyter notebook, prontas para serem executadas e reproduzir todos os resultados deste trabalho.</P>
+        <p>Parâmetros redefinidos e recalculados com estação em A:</p>
+        <img style="border: 4px solid rgb(0, 0, 0)" src="imagens/lista_parametros_2.png" alt="calculo_re_horizontal">
+        
+        <div>
+            <img src="imagens/precisoes_dos_pontos.png" alt="precisoes_finais">
+        </div>
+
+        <p style="font-family:cambria; font-size:large;"> De acordo com a precisão planimétrica exigida, apenas o vértice 32, determinado por intersecção de alinhamentos, excedeu o limite de 8 cm. Os vértices 25, 26, 27 e 31 atendem à precisão planimétrica exigida. A precisão planimética dos vértices que atendem ao exigido é 5 vezes menor 8 cm, o que é um bom sinal, pois dá uma margem grande para equipamentos topográficos menos precisos. Nem sempre estarão disponíveis estações totais de alta precisão, como a Ruide-RTS-822R3, que segundo a <a href="http://www.carto.eng.uerj.br/cdecart/download/NBR13133.pdf"> NBR 13133</a>, é um equipamento de alta precisão.</p>
+        
+        <h3>Cálculo da área do imóvel e sua precisão</h3>
+
+        <div>
+            <img src="imagens/area_e_precisao.png" alt="area_e_precisao">
+        </div>
+        <p style="font-family:cambria; font-size:large;"> A razão precisão/área nos mostra que o erro é inferior a 5 % do valor de área, como exigido no início do trabalho. No caso, o valor de 0,2 %, é 25 vezes menor que o limiar establecido. Quetiona-se se este valor é adequado, pois embora o erro na área realmente cresça com a área do imóvel, acredita-se que uma medida que variasse em função da área e da quantidade de pontos seria mais adequada. Justifica-se esse argumento com o seguinte exemplo: podem haver imóveis grandes com geometria simples, que não ultrapassem uma dezena de vértices. Por outro lado, podem existir imóveis complexos, com várias dezenas de pontos, mas com pouca área. No primeiro caso, o imóvel grande poderia passar no teste com facilidade, mas o imóvel pequeno teria dificuldades em razão da quantidade de pontos. Não sabemos se isto é válido, mas acreditamos que a sugestão de uma fórmula que considere o nº de vértices do imóvel (talvez multiplicando por raiz do nº), é válida.</p>
+        
+        <h3>Por fim, calculamos o perímetro do imóvel e sua precisão (será a norma-2 do vetor das precisões dos lados)</h3>
+
+        <div>
+            <img src="imagens/perimetro_e_precisao.png" alt="perimetro_e_precisao">
+        </div>
+
+        <p>PS: todos os calculos foram feitos com precisao de float 64 bits (15 casas decimais), mas foram arredondados para o milímetro nas fórmulas para não poluir o site visualmente. Valores com mais casas decimais podem ser obtidos no script citado</p>
+        
+    </body>

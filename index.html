@@ -336,6 +336,17 @@
             <div>
                 <img src="imagens/precisoes_apos_ajustamento.png" alt="precisoes_apos_ajustamento">
             </div>
+            <li>O calculo da precisão das coordenadas de A001 e A002 está neste scrip, que é o mesmo
+                apresentado anteriormente, mas agora expandido para conter o segundo trabalho. Utilizamos
+                as mesmas funções de anteriormente nesta etapa. Especificamente: calculamos a precisão do
+                Azimute da ré S002->S003, depois calculamos a precisão do azimute da vante S003-A001 (aqui
+                entra o sigma de I_1 e de DH_1 obtido na MVC), e então calculamos a precisão de X e Y em A001.
+                O mesmo é feito com A002, mas indo de cima para baixo, ou seja, o azimute da ré agora é o
+                S005->A003, e o azimute da vante é o A003->A002. E aqui entram o sigma de I_4 e de DH_3.
+                <div>
+                    <img src="imagens/precisoes_de_A001_e_A002.png" alt="precisoes_de_A001_e_A002">
+                </div>  
+            </li>
         </ol>
 
     </body>

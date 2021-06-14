@@ -334,19 +334,17 @@
             <div>
                 <img src="imagens/precisoes_apos_ajustamento.png" alt="precisoes_apos_ajustamento">
             </div>
-            <li>
-                Resíduos após ajustamento:
-                <div>
-                    <img src="imagens/residuos_ajustamento.png" alt="residuos_ajustamento">
-                </div>
-            </li>
+            <li>Resíduos após ajustamento:</li>
+            <div>
+                <img src="imagens/residuos_ajustamento.png" alt="residuos_ajustamento">
+            </div>
             <li>O calculo das coordenadas de A001 e A002 e precisões:</li>
                 Utilizamos as funções anteriores de propagação de erros nesta etapa. Especificamente:
                 calculamos a precisão do azimute da ré S002->S003, que é função apenas das coordenadas fixas,
-                depois calculamos a precisão do azimute da vante S003->A001, onde entra o sigma de I1 e de DH1
+                depois calculamos a precisão do azimute da vante S003->A001, onde entra o sigma de I 1 e de DH 1
                 obtidos na MVC, e então calculamos a precisão de A001 em x e y. O mesmo é feito com A002, mas
                 partindo de A003 para A002, ou seja, o azimute da ré é de S005->A003, e o azimute da vante é de
-                A003->A002. Neste último entra o sigma de I4 e de DH3, obtidos na MVC. Portanto, embora
+                A003->A002. Neste último entra o sigma de I 4 e de D H3, obtidos na MVC. Portanto, embora
                 os pontos fixos da poligonal não entrem no ajustamento, a propagação de erros foi feita
                 considerando as suas precisões, como no modelo de ajustamento com injuções relativas.
                 Isto reflete uma situação mais próxima da realidade, posto que todas as observações e
@@ -364,6 +362,9 @@
                 Comparação do resultado obtido neste trabalho (correlatos com injuções relativas) com o
                 resultado disponibilizado (paramétrico com injuções relativas):
             </li>
+            <div>
+                <img src="imagens/comparacao_correlatos_parametrico.png" alt="comparacao_correlatos_parametrico">
+            </div>
             <li>
                 Análise dos resultados:
                 <p> O modelo de equações que utilizamos no MMQ, chamado de correlatos, deveria retornar

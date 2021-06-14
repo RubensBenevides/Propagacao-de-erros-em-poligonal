@@ -341,10 +341,10 @@
             <li>O calculo das coordenadas de A001 e A002 e precisões:</li>
                 Utilizamos as funções anteriores de propagação de erros nesta etapa. Especificamente:
                 calculamos a precisão do azimute da ré S002->S003, que é função apenas das coordenadas fixas,
-                depois calculamos a precisão do azimute da vante S003->A001, onde entra o sigma de I 1 e de DH 1
+                depois calculamos a precisão do azimute da vante S003->A001, onde entra o sigma de I_1 e de DH_1
                 obtidos na MVC, e então calculamos a precisão de A001 em x e y. O mesmo é feito com A002, mas
                 partindo de A003 para A002, ou seja, o azimute da ré é de S005->A003, e o azimute da vante é de
-                A003->A002. Neste último entra o sigma de I 4 e de D H3, obtidos na MVC. Portanto, embora
+                A003->A002. Neste último entra o sigma de I_4 e de DH_3, obtidos na MVC. Portanto, embora
                 os pontos fixos da poligonal não entrem no ajustamento, a propagação de erros foi feita
                 considerando as suas precisões, como no modelo de ajustamento com injuções relativas.
                 Isto reflete uma situação mais próxima da realidade, posto que todas as observações e
@@ -366,13 +366,27 @@
                 <img src="imagens/comparacao_correlatos_parametrico.png" alt="comparacao_correlatos_parametrico">
             </div>
             <li>
-                Análise dos resultados:
-                <p> O modelo de equações que utilizamos no MMQ, chamado de correlatos, deveria retornar
-                as mesmas coordenadas ajustadas que o resultado apresentado na definição do trabalho,
-                que foi feito utilizando o modelo paramétrico de injuções relativas. Não sabemos o porquê
-                das diferenças apresentadas, que se situam em até 1 cm nas coordenadas. Muitos parâmetros
-                são definidos e muitos cálculos são feitos na implementação, embora todos tenham sido
-                checados mais de uma vez, as diferenças permaneceram.</p>
+                Comparação dos resíduos:
+            </li>
+            <div>
+                <img src="imagens/comparacao_residuos.png" alt="comparacao_residuos">
+            </div>
+            <li>
+            Análise dos resultados:
+            <p> O modelo de equações de condição, ou correlatos, deveria ter retornado
+                as mesmas precisões e coordenadas ajustadas que o resultado apresentado na definição
+                do trabalho (modelo paramétrico de injuções relativas). Não sabemos o porquê
+                das diferenças apresentadas, que são de até 1,2 cm nas coordenadas, e de 7 mm nas precições.
+                Muitos parâmetros são definidos e muitos cálculos são feitos na implementação, todos
+                foram checados mais de uma vez, mas as diferenças permaneceram. Em nosso modelo, em vez de
+                definir 6 equações para as distâncias horizontais, optamos por apenas 3, que utiliza as
+                médias de duas no mesmo alinhamento. A princípio, pensamos que isso seria a causa da
+                divergência de valores, mas mesmo corrigindo as preciões das médias das DH, que muda
+                de 0.002 mm para este valor vezes a raiz de 2, os resultados permaneceram inalterados. Em
+                nosso cálculo de propagação das variâncias das observações para as coordenadas de A001 e A002,
+                percebemos que o sigmas de DH_2 (A001-A002) o sigmas de I_2 (S003-A001-A002) e o sigma de
+                I_3 (A001-A002-A003), não foram necessários para descobrir a variância de dos pontos.
+                Efetivamente, apenas I_1 e I_4, junto com DH_1 e DH_3 foram necessários. </p>
             </li>
         </ol>
 

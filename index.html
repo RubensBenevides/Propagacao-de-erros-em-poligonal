@@ -333,16 +333,16 @@
                 <img src="imagens/precisoes_apos_ajustamento.png" alt="precisoes_apos_ajustamento">
             </div>
             <li>O calculo das coordenadas de A001 e A002 e precisões:</li>
-                que é o mesmo apresentado anteriormente, mas agora foi expandido para conter o segundo
-                trabalho. Utilizamos as funções anteriores de propagação de erros nesta etapa. Especificamente:
-                calculamos a precisão do azimute da ré S002->S003, depois calculamos a precisão do azimute
-                da vante S003->A001, onde entra o sigma de I1 e de DH1 obtido na MVC, e então calculamos
-                a precisão de A001 em x e y. O mesmo é feito com A002, mas indo de cima para baixo na poligonal,
-                ou seja, o azimute da ré é S005->A003, e o azimute da vante é o A003->A002. Neste último
-                utiliza-se o sigma de I4 e de DH3. Portanto, embora os pontos fixos da poligonal não entrem
-                no ajustamento, a propagação de erros foi feita considerando as suas precisões, como no modelo
-                de ajustamento com injuções relativas. Isto reflete uma situação mais próxima da realidade,
-                posto que todas as observações e parâmetros devem conter erros.
+                Utilizamos as funções anteriores de propagação de erros nesta etapa. Especificamente:
+                calculamos a precisão do azimute da ré S002->S003, que é função apenas das coordenadas fixas,
+                depois calculamos a precisão do azimute da vante S003->A001, onde entra o sigma de I1 e de DH1
+                obtidos na MVC, e então calculamos a precisão de A001 em x e y. O mesmo é feito com A002, mas
+                partindo de A003 para A002, ou seja, o azimute da ré é de S005->A003, e o azimute da vante é de
+                A003->A002. Neste último entra o sigma de I4 e de DH3, obtidos na MVC. Portanto, embora
+                os pontos fixos da poligonal não entrem no ajustamento, a propagação de erros foi feita
+                considerando as suas precisões, como no modelo de ajustamento com injuções relativas.
+                Isto reflete uma situação mais próxima da realidade, posto que todas as observações e
+                parâmetros devem conter erros. 
                 <div>
                     <img src="imagens/coordenadas_e_prcisoes_ajustadas.png" alt="coordenadas_e_prcisoes_ajustadas">
                 </div>
@@ -353,7 +353,8 @@
                     </li>
                 </ul>
             <li>
-                Discussão dos resultados:
+                Comparação do resultado com o resultado obtido considerando injuções absolutas:
+                <p>O</p>
             </li>
         </ol>
 

@@ -378,15 +378,17 @@
                 do trabalho (modelo paramétrico de injuções relativas). Não sabemos o porquê
                 das diferenças apresentadas, que são de até 1,2 cm nas coordenadas, e de 7 mm nas precisões.
                 Muitos parâmetros são definidos e muitos cálculos são feitos na implementação, todos
-                foram checados mais de uma vez, mas as diferenças permaneceram. Em nosso modelo, em vez de
+                foram checados mais de uma vez, mas as diferenças permaneceram. Em nosso cálculo
+                de propagação das variâncias para as coordenadas de A001 e A002, percebemos que o sigma de
+                DH_2 (A001_A002) o sigma de I_2 (S003_A001_A002) e o sigma de I_3 (A001_A002_A003), não foram
+                necessários para descobrir a variância de dos pontos. Efetivamente, apenas as variâncias de
+                I_1, I_4, DH_1 e DH_3 foram utilizadas. Em nosso modelo, em vez de
                 definir 6 equações para as distâncias horizontais, optamos por apenas 3, que utiliza as
                 médias de duas no mesmo alinhamento. A princípio, pensamos que isso seria a causa da
                 divergência de valores, mas mesmo corrigindo as preciões das médias das DH, que muda
-                de 0.002 mm para este valor vezes a raiz de 2, os resultados permaneceram inalterados. Em
-                nosso cálculo de propagação das variâncias para as coordenadas de A001 e A002,
-                percebemos que o sigma de DH_2 (A001-A002) o sigma de I_2 (S003-A001-A002) e o sigma de
-                I_3 (A001-A002-A003), não foram necessários para descobrir a variância de dos pontos.
-                Efetivamente, apenas I_1 e I_4, junto com DH_1 e DH_3 foram utilizados. </p>
+                de 0.002 mm para este valor vezes a raiz de 2, os resultados permaneceram inalterados. Uma
+                consequência desta escolha de organizar as equações é que não podemos comparar os resíduos
+                das distâncias horizontais, mas ainda foi possível comparar os resíduos dos ângulos I. </p>
             </li>
         </ol>
 

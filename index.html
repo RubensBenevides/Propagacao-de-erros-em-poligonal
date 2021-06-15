@@ -380,21 +380,26 @@
             Análise dos resultados:
             <p> O modelo de equações de condição, ou correlatos, deveria ter retornado
                 as mesmas coordenadas ajustadas que o resultado apresentado na definição
-                do trabalho (modelo paramétrico de injuções relativas). Não sabemos o porquê
-                das diferenças apresentadas, que são de até 1,2 cm nas coordenadas, e de 7 mm nas precisões.
+                do trabalho (modelo paramétrico com injuções relativas). Não sabemos o porquê
+                das diferenças apresentadas, que foi de até 12 mm na coordenada Y do ponto A002_y.
                 Muitos parâmetros são definidos e muitos cálculos são feitos na implementação, todos
                 foram checados mais de uma vez, mesmo assim as diferenças permaneceram. Em nosso modelo,
                 em vez de definir 6 equações para as distâncias horizontais, optamos por apenas 3, que
-                utiliza as médias de duas DH no mesmo alinhamento. A princípio, pensamos que isso seria
-                a causa da divergência de valores, mas mesmo corrigindo as preciões das médias, que muda
+                utiliza as médias das duas DH do mesmo alinhamento. A princípio, pensamos que isso seria
+                a causa da divergência, mas mesmo propagando os erros para as médias, que muda
                 de 0.002 mm para este valor vezes a raiz de 2, os resultados permaneceram inalterados. Uma
                 consequência desta escolha de equações é que não conseguimos comparar os resíduos
                 das distâncias horizontais, mas ainda foi possível comparar os resíduos dos ângulos I.
-                Tanto as precisões quanto os resíduos estão maiores que o o esperado. Em nosso cálculo
-                de propagação das variâncias para as coordenadas de A001 e A002, percebemos que o sigma de
-                DH_2 (A001_A002) o sigma de I_2 (S003_A001_A002) e o sigma de I_3 (A001_A002_A003), não foram
-                necessários para descobrir a variância dos pontos. Efetivamente, apenas as variâncias de
-                I_1, I_4, DH_1 e DH_3 foram utilizadas. Abaixo estão os valores intermediários </p>
+                Neste ponto, a soma dos quadrados dos resíduos dos ângulos está menor que a soma dos resíduos
+                fornecidos pelo modelo paramétrico com injuções relativas. Isto é estranho, pois no modelo dos
+                correlatos, que aplicamos, não consideramos injunções relativas. As precisões também estão 
+                um pouco maiores que o esperado, elas não deveriam ser maiores do que as calculadas com injunções
+                relativas. Em nossa propagação das variâncias para as coordenadas de A001 e A002, consideramos
+                as incertezas dos pontos fixos, de forma a obter um resultado parecido com disponibilizado.
+                Na propagação das incertezas, o sigma das observações DH_2 (A001_A002), I_2 (S003_A001_A002) e
+                I_3 (A001_A002_A003), não foram necessários para descobrir a variância dos pontos. Efetivamente,
+                apenas as variâncias de I_1, I_4, DH_1 e DH_3 foram utilizadas. Abaixo estão os valores
+                intermediários utilizados no cálculo das precições dos pontos, segundo as fórmulas to trabalho 1. </p>
             </li>
         </ol>
 
